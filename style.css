@@ -556,6 +556,53 @@ body {
 .value-text {
   color: #d1d5db;
 }
+/* ===== Reach Us Section ===== */
+.reach-us {
+  background-color: #f9f9f9;
+  padding: 4rem 2rem;
+  text-align: center;
+}
+
+.reach-us h2 {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  color: #1a1a1a;
+}
+
+.reach-us .container {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-family: inherit;
+}
+
+.submit-btn {
+  background-color: #1a73e8;
+  color: white;
+  border: none;
+  padding: 0.75rem 2rem;
+  font-size: 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.submit-btn:hover {
+  background-color: #155ab6;
+}
+
 
 /* Footer */
 .footer {
@@ -611,6 +658,35 @@ body {
 .contact-icon {
   font-size: 1rem;
 }
+
+.footer-social {
+  margin-top: 1.5rem;
+  color: #9ca3af;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.footer-social p {
+  margin-bottom: 0.5rem;
+}
+
+.social-icons {
+  display: flex;
+  gap: 1rem;
+}
+
+.social-icons a {
+  color: #9ca3af;
+  font-size: 1.5rem;
+  transition: color 0.3s ease;
+}
+
+.social-icons a:hover,
+.social-icons a:focus {
+  color: #fff;
+  outline: none;
+}
+
 
 .footer-heading {
   font-size: 1.125rem;
@@ -713,4 +789,12 @@ body {
   .features-grid {
     grid-template-columns: 1fr;
   }
+    .footer-social {
+    text-align: center;
+  }
+  .social-icons {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
 }
