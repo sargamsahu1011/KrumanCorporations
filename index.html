@@ -8,6 +8,12 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  />
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -219,6 +225,25 @@
     </div>
   </section>
 
+  <section class="reach-us" id="contact">
+  <div class="container">
+    <h2>Reach out to us</h2>
+    <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+      <div class="form-group">
+        <input type="text" name="name" placeholder="Your Name" required />
+      </div>
+      <div class="form-group">
+        <input type="email" name="email" placeholder="Your Email" required />
+      </div>
+      <div class="form-group">
+        <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
+      </div>
+      <button type="submit" class="submit-btn">Send Message</button>
+    </form>
+  </div>
+</section>
+
+
   <!-- Footer -->
   <footer class="footer">
     <div class="container">
@@ -238,10 +263,20 @@
             </div>
             <div class="contact-item">
               <span class="contact-icon">📧</span>
-              <a href="mailto:krumancorporations@gmail.com"style="color: white; text-decoration: none;">krumancorporations@gmail.com</a>
+              <a href="mailto:krumancorporations@gmail.com" style="color: white; text-decoration: none;">krumancorporations@gmail.com</a>
             </div>
+           </div>
+         <!-- Add Social Icons Section Here -->
+        <div class="footer-social">
+          <p>Connect with us</p>
+          <div class="social-icons">
+            <a href="https://www.linkedin.com/company/kruman-corporations/" target="_blank" aria-label="LinkedIn" style="color: white;">
+              <i class="fab fa-linkedin fa-lg"></i>
+            </a>
           </div>
         </div>
+      </div>
+        
         
         <div class="footer-links">
           <div class="footer-column">
