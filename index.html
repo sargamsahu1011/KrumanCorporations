@@ -17,28 +17,28 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <!-- Header -->
-  <header class="header">
-    <nav class="nav-container">
-      <div class="nav-content">
-        <div class="logo-container">
-          <img src="krumanlogo.png" alt="Kruman Corporations" class="logo">
-        </div>
-        
-        <div class="nav-menu">
-          <a href="#home" class="nav-link">Home</a>
-          <a href="#research" class="nav-link">Research</a>
-          <a href="#products" class="nav-link">Product Studio</a>
-              
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <button class="mobile-menu-btn">☰</button>
+ <!-- Header -->
+<header class="header">
+  <nav class="nav-container">
+    <div class="nav-content">
+      
+      <!-- Logo Left -->
+      <div class="logo-container">
+        <img src="krumanlogo.png" alt="Kruman Corporations" class="logo">
       </div>
-    </nav>
-  </header>
+
+      <!-- Nav Menu (center/right on desktop, hidden on mobile) -->
+      <div class="nav-menu">
+        <a href="#home" class="nav-link">Home</a>
+        <a href="#whitepapers" class="nav-link">Research</a>
+        <a href="aistudio.html" class="nav-link">AI & Product Studio</a>
+      </div>
+
+      <!-- Hamburger Icon (right) -->
+      <button class="mobile-menu-btn">☰</button>
+    </div>
+  </nav>
+</header>
 
   <!-- Hero Section -->
   <section id="home" class="hero">
@@ -164,7 +164,7 @@
           <button class="card-button">Explore →</button>
         </div>
 
-        <div class="feature-card">
+        <div class="feature-card" id="whitepapers">
           <div class="card-header">
             <div class="card-icon">📚</div>
             <span class="card-category">Publications</span>
@@ -304,5 +304,6 @@
       </div>
     </div>
   </footer>
+  <script src="script.js"></script>
 </body>
 </html>
