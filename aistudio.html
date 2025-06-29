@@ -1,0 +1,1106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Product Studio - Kruman Corporations</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        html{ 
+          scroll-behavior: smooth;
+        }
+
+        * {
+          margin: 0;
+          padding: 0;
+          box-sizing: border-box;
+        }
+
+        body {
+          font-family: 'Inter', sans-serif;
+          line-height: 1.6;
+          color: #1f2937;
+          background-color: #ffffff;
+          margin: 0;
+        }
+
+        main {
+          flex: 1;
+          display: flex;
+          flex-direction: column;
+        }
+
+        .container {
+          max-width: 1200px;
+          margin: 0 auto;
+          padding: 0 1.5rem;
+        }
+
+        /* Header Styles */
+        .header {
+          position: fixed;
+          top: 0;
+          left: 0;
+          right: 0;
+          background-color: rgba(255, 255, 255, 0.95);
+          backdrop-filter: blur(12px);
+          z-index: 50;
+          border-bottom: 1px solid #e5e7eb;
+        }
+
+        .nav-container {
+          max-width: 10000px;
+        margin: 0 auto;
+        padding: 1rem 1.5rem;
+        }
+
+        .nav-content {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+        }
+
+        .logo {
+           height: 80px;
+            width: 80px;
+           object-fit: cover;
+           border-radius: 50%;
+            display: block;
+        }
+
+        .nav-menu {
+          display: flex;
+          align-items: center;
+          gap: 2rem;
+        }
+
+        .nav-link {
+          color: #374151;
+          text-decoration: none;
+          font-weight: 500;
+          transition: color 0.2s ease;
+        }
+
+        .nav-link:hover {
+          color: #2563eb;
+        }
+
+        .mobile-menu-btn {
+          display: none;
+          font-size: 1.5rem;
+          background: none;
+          border: none;
+          color: #374151;
+          cursor: pointer;
+        }
+
+        /* Hero Section */
+        .page-hero.studio-hero {
+          text-align: center;
+          padding: 8rem 1rem 4rem;
+          background: linear-gradient(to bottom, #ffffff, #f9f5ff);
+          min-height: 100vh;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+
+        .page-hero-container {
+          max-width: 768px;
+          margin: 0 auto;
+        }
+
+        .page-hero-badge {
+          display: inline-block;
+          background-color: #f3e8ff;
+          color: #7c3aed;
+          padding: 0.5rem 1rem;
+          border-radius: 9999px;
+          font-weight: 500;
+          font-size: 0.875rem;
+          margin-bottom: 1.5rem;
+        }
+
+        .hero-badge-icon {
+          margin-right: 0.5rem;
+        }
+
+        .page-hero-title {
+          font-size: 3rem;
+          font-weight: 800;
+          margin-bottom: 1rem;
+          color: #111827;
+          line-height: 1.1;
+        }
+
+        .hero-gradient {
+          background: linear-gradient(to right, #8b5cf6, #3b82f6, #10b981);
+          background-clip: text;
+          -webkit-background-clip: text;
+          color: transparent;
+          display: inline-block;
+        }
+
+        .page-hero-description {
+          font-size: 1.125rem;
+          color: #4b5563;
+          max-width: 36rem;
+          margin: 0 auto;
+          line-height: 1.75;
+        }
+
+        /* Studio Stats */
+        .studio-stats {
+          background-color: #ffffff;
+          padding: 3rem 1rem;
+          border-top: 1px solid #e5e7eb;
+        }
+
+        .studio-stats-container {
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: center;
+          gap: 4rem;
+          max-width: 900px;
+          margin: 0 auto;
+        }
+
+        .studio-stat-item {
+          text-align: center;
+          min-width: 120px;
+        }
+
+        .studio-stat-number {
+          font-size: 2rem;
+          font-weight: 700;
+          color: #8b5cf6;
+          margin-bottom: 0.25rem;
+        }
+
+        .studio-stat-label {
+          font-size: 1rem;
+          color: #374151;
+        }
+
+        /* Section Headers */
+        .section-header {
+          text-align: center;
+          margin-bottom: 3rem;
+        }
+
+        .section-title {
+          font-size: 2.5rem;
+          font-weight: 700;
+          color: #111827;
+          margin-bottom: 1rem;
+        }
+
+        .section-description {
+          font-size: 1.125rem;
+          color: #6b7280;
+          max-width: 600px;
+          margin: 0 auto;
+          line-height: 1.6;
+        }
+
+        /* Live Agents Section */
+        .live-agents {
+          padding: 5rem 1rem;
+          background: #f9fafb;
+        }
+
+        .live-agents-container {
+          max-width: 1200px;
+          margin: 0 auto;
+        }
+
+        .agent-card {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: 0;
+          background: white;
+          border-radius: 1rem;
+          overflow: hidden;
+          box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+          margin-bottom: 3rem;
+          border: 1px solid #e5e7eb;
+        }
+
+        .hr-agent .agent-content {
+          background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+        }
+
+        .inventory-agent .agent-content {
+          background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);
+        }
+
+        .agent-content {
+          padding: 3rem;
+        }
+
+        .agent-header {
+          display: flex;
+          align-items: center;
+          gap: 1rem;
+          margin-bottom: 1.5rem;
+        }
+
+        .agent-icon {
+          width: 3rem;
+          height: 3rem;
+          background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+          border-radius: 0.75rem;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-size: 1.5rem;
+          color: white;
+        }
+
+        .inventory-agent .agent-icon {
+          background: linear-gradient(135deg, #10b981, #059669);
+        }
+
+        .agent-badge {
+          padding: 0.25rem 0.75rem;
+          border-radius: 1rem;
+          font-size: 0.75rem;
+          font-weight: 600;
+          text-transform: uppercase;
+          letter-spacing: 0.05em;
+        }
+
+        .agent-badge.enterprise {
+          background: #3b82f6;
+          color: white;
+        }
+
+        .agent-badge.msme {
+          background: #10b981;
+          color: white;
+        }
+
+        .agent-title {
+          font-size: 1.875rem;
+          font-weight: 800;
+          color: #1f2937;
+          margin-bottom: 0.5rem;
+          line-height: 1.2;
+        }
+
+        .agent-headline {
+          font-size: 1.125rem;
+          font-weight: 600;
+          color: #3b82f6;
+          margin-bottom: 1rem;
+        }
+
+        .inventory-agent .agent-headline {
+          color: #10b981;
+        }
+
+        .agent-description {
+          font-size: 1rem;
+          color: #6b7280;
+          margin-bottom: 2rem;
+          line-height: 1.7;
+        }
+
+        .agent-features {
+          list-style: none;
+          margin-bottom: 2rem;
+        }
+
+        .agent-features li {
+          display: flex;
+          align-items: center;
+          gap: 0.75rem;
+          padding: 0.5rem 0;
+          color: #374151;
+          font-weight: 500;
+        }
+
+        .feature-icon {
+          font-size: 1.25rem;
+          color: #10b981;
+        }
+
+        .agent-actions {
+          display: flex;
+          gap: 1rem;
+          margin-bottom: 1.5rem;
+          flex-wrap: wrap;
+        }
+
+        .btn-primary {
+          background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+          color: white;
+          padding: 0.75rem 1.5rem;
+          border: none;
+          border-radius: 0.5rem;
+          font-weight: 600;
+          cursor: pointer;
+          transition: all 0.3s ease;
+          display: inline-flex;
+          align-items: center;
+          gap: 0.5rem;
+          text-decoration: none;
+        }
+
+        .inventory-agent .btn-primary {
+          background: linear-gradient(135deg, #10b981, #059669);
+        }
+
+        .btn-primary:hover {
+          transform: translateY(-2px);
+          box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+
+        .agent-note {
+          font-size: 0.875rem;
+          color: #6b7280;
+          margin-bottom: 1.5rem;
+          font-style: italic;
+        }
+
+        .agent-cta {
+          background: rgba(59, 130, 246, 0.1);
+          padding: 1rem;
+          border-radius: 0.5rem;
+          border: 1px solid rgba(59, 130, 246, 0.2);
+        }
+
+        .inventory-agent .agent-cta {
+          background: rgba(16, 185, 129, 0.1);
+          border-color: rgba(16, 185, 129, 0.2);
+        }
+
+        .cta-text {
+          font-weight: 600;
+          color: #1f2937;
+          margin-bottom: 0.5rem;
+        }
+
+        .cta-link {
+          color: #3b82f6;
+          text-decoration: underline;
+          font-weight: 500;
+        }
+
+        .inventory-agent .cta-link {
+          color: #10b981;
+        }
+
+        /* Demo Section */
+        .agent-demo {
+          background: linear-gradient(135deg, #dbeafe 0%, #f3e8ff 100%);
+          position: relative;
+        }
+
+        .inventory-agent .agent-demo {
+          background: linear-gradient(135deg, #d1fae5 0%, #a7f3d0 100%);
+        }
+
+        .demo-container {
+          width: 100%;
+          height: 600px;
+          padding: 1.5rem;
+        }
+
+        .demo-iframe {
+          width: 100%;
+          height: 100%;
+          border: none;
+          border-radius: 0.75rem;
+          background: white;
+          box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+
+        .demo-video {
+          width: 100%;
+          height: 100%;
+          border: none;
+          border-radius: 0.75rem;
+          background: white;
+          box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+          object-fit: cover;
+        }
+
+        /* Show/Hide states */
+        .demo-hidden {
+          display: none;
+        }
+
+        .demo-visible {
+          display: block;
+        }
+
+        /* Coming Soon Agents */
+        .coming-soon-agents {
+          background-color: #f9fafb;
+          padding: 5rem 1rem;
+          text-align: center;
+        }
+
+        .coming-soon-container {
+          max-width: 1200px;
+          margin: 0 auto;
+        }
+
+        .agents-grid {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+          gap: 2rem;
+          margin-top: 3rem;
+        }
+
+        .coming-soon-card {
+          background-color: #ffffff;
+          border: 2px dashed #e5e7eb;
+          border-radius: 1rem;
+          padding: 2rem;
+          transition: box-shadow 0.3s ease;
+        }
+
+        .coming-soon-card:hover {
+          box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+        }
+
+        .coming-soon-icon {
+          font-size: 2.5rem;
+          background: #ecfdf5;
+          border-radius: 0.75rem;
+          width: 3.5rem;
+          height: 3.5rem;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          margin: 0 auto 1rem;
+        }
+
+        .coming-soon-badge {
+          background-color: #f3f4f6;
+          color: #111827;
+          font-size: 0.875rem;
+          font-weight: 600;
+          border-radius: 9999px;
+          padding: 0.25rem 0.75rem;
+          display: inline-block;
+          margin-bottom: 0.75rem;
+        }
+
+        .coming-soon-title {
+          font-size: 1.25rem;
+          font-weight: 700;
+          color: #111827;
+          margin-bottom: 0.5rem;
+        }
+
+        .coming-soon-description {
+          font-size: 1rem;
+          color: #4b5563;
+          line-height: 1.5;
+          margin-bottom: 1.5rem;
+        }
+
+        .coming-soon-timeline {
+          background-color: #fef3c7;
+          color: #92400e;
+          padding: 0.5rem 1rem;
+          border-radius: 9999px;
+          font-size: 0.875rem;
+          font-weight: 600;
+          display: inline-block;
+        }
+
+        /* Technical Capabilities */
+        .technical-capabilities {
+          background-color: #f9fafb;
+          padding: 5rem 1rem;
+          text-align: center;
+        }
+
+        .technical-capabilities-container {
+          max-width: 1200px;
+          margin: 0 auto;
+        }
+
+        .capabilities-grid {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+          gap: 2rem;
+          margin-top: 3rem;
+        }
+
+        .capability-card {
+          background-color: #ffffff;
+          padding: 2rem 1.5rem;
+          border-radius: 1rem;
+          box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+          transition: transform 0.3s ease;
+        }
+
+        .capability-card:hover {
+          transform: translateY(-5px);
+        }
+
+        .capability-icon {
+          font-size: 2rem;
+          margin-bottom: 1rem;
+          display: inline-block;
+        }
+
+        .capability-title {
+          font-size: 1.125rem;
+          font-weight: 600;
+          color: #111827;
+          margin-bottom: 0.75rem;
+        }
+
+        .capability-description {
+          font-size: 0.95rem;
+          color: #6b7280;
+          line-height: 1.5;
+        }
+
+        /* CTA Section */
+        .studio-cta {
+          width: 100vw;
+          padding: 2.5rem 2rem;
+          margin-left: calc(-50vw + 50%);
+          background: linear-gradient(135deg, #8b5cf6, #3b82f6);
+          color: white;
+          text-align: center;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          position: relative;
+          z-index: 1;
+          flex-shrink: 0;
+          margin-bottom: 0;
+        }
+
+        .studio-cta-container {
+          width: 100%;
+          max-width: 900px;
+          margin: 0 auto;
+          text-align: center;
+          z-index: 2;
+          position: relative;
+        }
+
+        .cta-title {
+          font-size: 2.5rem;
+          font-weight: 800;
+          margin-bottom: 1.5rem;
+          line-height: 1.1;
+        }
+
+        .cta-description {
+          font-size: 1.25rem;
+          margin-bottom: 2rem;
+          opacity: 0.9;
+          line-height: 1.6;
+        }
+
+        .cta-buttons {
+          display: flex;
+          gap: 1rem;
+          justify-content: center;
+          flex-wrap: wrap;
+        }
+
+        .cta-buttons a,
+        .cta-buttons button {
+          background: white;
+          color: #3b82f6;
+          padding: 0.75rem 1.5rem;
+          border: none;
+          border-radius: 0.5rem;
+          font-weight: 600;
+          cursor: pointer;
+          transition: all 0.3s ease;
+          display: inline-flex;
+          align-items: center;
+          gap: 0.5rem;
+          text-decoration: none;
+          box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+        }
+
+        .cta-buttons a:hover,
+        .cta-buttons button:hover {
+          transform: translateY(-2px);
+          box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Footer */
+        .footer {
+          width: 100vw;
+          margin-left: calc(-50vw + 50%);
+          background-color: #111827;
+          color: #ffffff;
+          padding: 2rem 1rem;
+          text-align: center;
+          font-size: 0.875rem;
+          flex-shrink: 0;
+          margin-top: 0;
+        }
+
+        .footer .container {
+          max-width: 900px;
+          margin: 0 auto;
+          padding: 0 1rem;
+        }
+
+        .footer p {
+          color: #9ca3af;
+          font-size: 0.875rem;
+          margin: 0;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+          .agent-card {
+            grid-template-columns: 1fr;
+          }
+
+          .nav-menu {
+            display: none;
+          }
+
+          .mobile-menu-btn {
+            display: block;
+          }
+
+          .page-hero-title {
+            font-size: 2rem;
+          }
+
+          .agent-content {
+            padding: 2rem;
+          }
+
+          .cta-title {
+            font-size: 1.75rem;
+          }
+
+          .cta-description {
+            font-size: 1rem;
+          }
+        }
+
+        @media (max-width: 640px) {
+          .page-hero.studio-hero {
+            padding: 6rem 1rem 3rem;
+          }
+
+          .page-hero-title {
+            font-size: 1.75rem;
+          }
+
+          .agent-content {
+            padding: 1.5rem;
+          }
+
+          .capabilities-grid {
+            grid-template-columns: 1fr;
+          }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav-container">
+            <div class="nav-content">
+                <!-- Logo Left -->
+                <div class="logo-container">
+                    <img src="assets/images/krumanlogo.png" alt="Kruman Corporations" class="logo">
+                </div>
+
+                <!-- Nav Menu -->
+                <div class="nav-menu">
+                    <a href="index.html" class="nav-link">Home</a>
+                    <a href="whitepapers.html" class="nav-link">Research</a>
+                    <a href="#aistudio" class="nav-link">AI Product Studio</a>
+                </div>
+
+                <!-- Hamburger Icon -->
+                <button class="mobile-menu-btn">☰</button>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="page-hero studio-hero" id="home">
+            <div class="page-hero-container">
+                <div class="page-hero-badge">
+                    <span class="hero-badge-icon">✨</span>
+                    Live AI Demonstrations
+                </div>
+                <h1 class="page-hero-title">
+                    AI Product
+                    <span class="hero-gradient">Studio</span>
+                </h1>
+                <p class="page-hero-description">
+                    Experience our cutting-edge AI agents and interactive demonstrations. 
+                    See artificial intelligence in action through real-world applications.
+                </p>
+            </div>
+        </section>
+
+        <!-- Studio Stats -->
+        <section class="studio-stats">
+            <div class="studio-stats-container">
+                <div class="studio-stat-item">
+                    <div class="studio-stat-number">2+</div>
+                    <div class="studio-stat-label">AI Agents Live</div>
+                </div>
+                <div class="studio-stat-item">
+                    <div class="studio-stat-number">24/7</div>
+                    <div class="studio-stat-label">Availability</div>
+                </div>
+                <div class="studio-stat-item">
+                    <div class="studio-stat-number">99%</div>
+                    <div class="studio-stat-label">Uptime</div>
+                </div>
+                <div class="studio-stat-item">
+                    <div class="studio-stat-number">1000+</div>
+                    <div class="studio-stat-label">Interactions</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Live AI Agents -->
+        <section class="live-agents" id="aistudio">
+            <div class="live-agents-container">
+                <div class="section-header">
+                    <h2 class="section-title">Live AI Agents</h2>
+                    <p class="section-description">
+                        Experience our intelligent agents in action. Click to interact directly with each AI assistant.
+                    </p>
+                </div>
+
+                <!-- HR Onboarding Agent -->
+                <div class="agent-card hr-agent">
+                    <div class="agent-content">
+                        <div class="agent-header">
+                            <div class="agent-icon">👥</div>
+                            <div class="agent-badge enterprise">Enterprise Ready</div>
+                        </div>
+                        <h3 class="agent-title">AI HR Onboarding Assistant</h3>
+                        <p class="agent-headline">✨ Automated Onboarding. Personalized Experience.</p>
+                        <p class="agent-description">
+                            Give your new hires a great first impression — powered by AI. Our AI HR Onboarding Agent automates key onboarding tasks so your HR team can focus on what really matters: people.
+                        </p>
+                        <ul class="agent-features">
+                            <li><span class="feature-icon">📄</span>Generate offer letters (custom text or downloadable .docx)</li>
+                            <li><span class="feature-icon">👥</span>Assign mentors based on department</li>
+                            <li><span class="feature-icon">📄</span>Fetch HR policies and role guides (via AI + RAG)</li>
+                            <li><span class="feature-icon">📅</span>Schedule welcome calls with calendar integration</li>
+                        </ul>
+                        <div class="agent-actions">
+                            <button class="btn-primary" onclick="toggleDemo('hr-demo', 'hr-btn')">
+                                <span class="btn-icon">⚡</span>
+                                <span id="hr-btn">Try our App for free!!</span>
+                            </button>
+                        </div>
+                        <p class="agent-note">
+                            🔐 Built with the ability to plug into your existing HRMS, or run stand-alone for startups and small businesses.
+                        </p>
+                        <div class="agent-cta">
+                            <p class="cta-text">🚀 Want a similar AI Agent customized for your company?</p>
+                            <a href="mailto:krumancorporations@gmail.com" class="cta-link">Book a free strategy call or drop us a message — Contact Us</a>
+                        </div>
+                    </div>
+
+                    <div class="agent-demo">
+                        <div class="demo-container">
+                            <!-- Video Demo (shown by default) -->
+                            <video id="hr-video" class="demo-video" autoplay muted loop playsinline>
+                                <source src="assets/aivideos/hr_onboarding_demo.mp4" type="video/mp4" />
+                                Your browser does not support the video tag.
+                            </video>
+                            <!-- Streamlit App (hidden by default) -->
+                            <iframe id="hr-demo" class="demo-iframe demo-hidden" 
+                                    src="https://myhrbykrumancorporations.streamlit.app?embedded=true" 
+                                    title="HR Onboarding Assistant">
+                            </iframe>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Inventory Forecasting Agent -->
+                <div class="agent-card inventory-agent">
+                    <div class="agent-content">
+                        <div class="agent-header">
+                            <div class="agent-icon">📦</div>
+                            <div class="agent-badge msme">MSME Focused</div>
+                        </div>
+                        <h3 class="agent-title">Inventory Optimization & Forecasting Agent</h3>
+                        <p class="agent-headline">✨ Smarter Inventory Decisions. No Guesswork.</p>
+                        <p class="agent-description">
+                            Stop stockouts. Cut holding costs. Our AI-powered Inventory Optimization Agent helps MSMEs track product performance, forecast demand, and recommend smart restocking strategies — all based on your own inventory and sales data.
+                        </p>
+                        <ul class="agent-features">
+                            <li><span class="feature-icon">📊</span>30 to 45-day demand forecasts</li>
+                            <li><span class="feature-icon">⚠️</span>Stock-out risk analysis</li>
+                            <li><span class="feature-icon">📦</span>Reorder quantity recommendations</li>
+                            <li><span class="feature-icon">🧠</span>Sales trends analysis with charts</li>
+                        </ul>
+                        <div class="agent-actions">
+                            <button class="btn-primary" onclick="toggleDemo('inventory-demo', 'inventory-btn')">
+                                <span class="btn-icon">⚡</span>
+                                <span id="inventory-btn">Try our App for free!!</span>
+                            </button>
+                        </div>
+                        <p class="agent-note">
+                            💡 Whether you're a small store or a growing supply chain, this agent acts as your always-on inventory planner.
+                        </p>
+                        <div class="agent-cta">
+                            <p class="cta-text">🚀 Need this customized for your business?</p>
+                            <a href="mailto:krumancorporations@gmail.com" class="cta-link">Contact us to tailor one for your own business</a>
+                        </div>
+                    </div>
+
+                    <div class="agent-demo">
+                        <div class="demo-container">
+                            <!-- Video Demo (shown by default) -->
+                            <video id="inventory-video" class="demo-video" autoplay muted loop playsinline>
+                                <source src="assets/aivideos/InventoryAgent.mp4" type="video/mp4" />
+                                Your browser does not support the video tag.
+                            </video>
+                            <!-- Streamlit App (hidden by default) -->
+                            <iframe id="inventory-demo" class="demo-iframe demo-hidden" 
+                                    src="https://inventoryforecasting.streamlit.app?embedded=true" 
+                                    title="Inventory Forecasting Agent">
+                            </iframe>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+            <!-- Student Performance Management System Agent -->
+    <section class="live-agents" id="student-agent">
+      <div class="live-agents-container">
+        <div class="agent-card">
+          <div class="agent-content">
+            <div class="agent-header">
+              <div class="agent-icon">🎓</div>
+              <div class="agent-badge enterprise">Education Tech</div>
+            </div>
+            <h3 class="agent-title">Student Performance Management System</h3>
+            <p class="agent-headline">📈 Smarter Insights. Stronger Outcomes.</p>
+            <p class="agent-description">
+              Introducing Kruman Corporation's Student Performance Management System, your gateway to smarter education management. Harness the power of AI-driven analytics to gain unparalleled insights into student progress, classroom trends, and institutional performance. From customizable dashboards to detailed reports and predictive analytics, Kruman Corporation empowers educators and administrators to make data-informed decisions with confidence. Enhance transparency, boost academic outcomes, and strengthen parent engagement, all while streamlining workflows and reducing administrative burdens. Experience the future of education technology with Kruman Corporation — where every student's potential meets actionable intelligence.
+            </p>
+            <ul class="agent-features">
+              <li><span class="feature-icon">📊</span>Customizable performance dashboards</li>
+              <li><span class="feature-icon">📑</span>Detailed student and class reports</li>
+              <li><span class="feature-icon">🔍</span>Predictive analytics for academic planning</li>
+              <li><span class="feature-icon">📣</span>Parent and teacher engagement tools</li>
+            </ul>
+            <div class="agent-actions">
+              <button class="btn-primary" onclick="toggleDemo('student-demo', 'student-btn')">
+                <span class="btn-icon">⚡</span>
+                <span id="student-btn">Try our App for free!!</span>
+              </button>
+            </div>
+            <p class="agent-note">
+              🎯 Built for schools, colleges, and edtech platforms seeking smarter decision-making.
+            </p>
+            <div class="agent-cta">
+              <p class="cta-text">🚀 Want this AI Agent implemented in your institution?</p>
+              <a href="mailto:krumancorporations@gmail.com" class="cta-link">Contact us to discuss deployment options</a>
+            </div>
+          </div>
+          <div class="agent-demo">
+            <div class="demo-container">
+              <video id="student-video" class="demo-video" autoplay muted loop playsinline>
+                <source src="assets/aivideos/Student Performance Management System.mp4" type="video/mp4" />
+                Your browser does not support the video tag.
+              </video>
+              <iframe id="student-demo" class="demo-iframe demo-hidden" 
+                      src="https://studentperformanceai.streamlit.app?embedded=true" 
+                      title="Student Performance Management System">
+              </iframe>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+        <!-- Coming Soon Agents -->
+        <section class="coming-soon-agents">
+            <div class="coming-soon-container">
+                <div class="section-header">
+                    <h2 class="section-title">Upcoming AI Agents</h2>
+                    <p class="section-description">
+                        We're continuously developing new AI agents across different domains. Here's what's coming next.
+                    </p>
+                </div>
+                <div class="agents-grid">
+                    <div class="coming-soon-card">
+                        <div class="coming-soon-icon">🎓</div>
+                        <div class="coming-soon-badge">Education</div>
+                        <h3 class="coming-soon-title">AI Tutor for K-12</h3>
+                        <p class="coming-soon-description">
+                            Personalized learning assistant for students with multi-language support and adaptive curriculum.
+                        </p>
+                        <div class="coming-soon-timeline">Coming Q2 2025</div>
+                    </div>
+                    <div class="coming-soon-card">
+                        <div class="coming-soon-icon">📊</div>
+                        <div class="coming-soon-badge">Business Intelligence</div>
+                        <h3 class="coming-soon-title">SME Analytics Assistant</h3>
+                        <p class="coming-soon-description">
+                            Predictive analytics and automated insights specifically designed for Indian small and medium enterprises.
+                        </p>
+                        <div class="coming-soon-timeline">Coming Q3 2025</div>
+                    </div>
+                    <div class="coming-soon-card">
+                        <div class="coming-soon-icon">⚖️</div>
+                        <div class="coming-soon-badge">Legal Tech</div>
+                        <h3 class="coming-soon-title">Legal Document Assistant</h3>
+                        <p class="coming-soon-description">
+                            AI-powered legal document analysis and generation tool for law firms and corporate legal teams.
+                        </p>
+                        <div class="coming-soon-timeline">Coming Q4 2025</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Technical Capabilities -->
+        <section class="technical-capabilities">
+            <div class="technical-capabilities-container">
+                <div class="section-header">
+                    <h2 class="section-title">Technical Capabilities</h2>
+                    <p class="section-description">
+                        Our AI Studio is built on cutting-edge technologies and frameworks for maximum performance and reliability.
+                    </p>
+                </div>
+                <div class="capabilities-grid">
+                    <div class="capability-card">
+                        <div class="capability-icon">🧠</div>
+                        <h3 class="capability-title">Natural Language Processing</h3>
+                        <p class="capability-description">
+                            Advanced NLP models for human-like conversation and understanding.
+                        </p>
+                    </div>
+                    <div class="capability-card">
+                        <div class="capability-icon">💻</div>
+                        <h3 class="capability-title">Machine Learning</h3>
+                        <p class="capability-description">
+                            Custom ML models trained on domain-specific datasets for accuracy.
+                        </p>
+                    </div>
+                    <div class="capability-card">
+                        <div class="capability-icon">⚡</div>
+                        <h3 class="capability-title">Real-time Processing</h3>
+                        <p class="capability-description">
+                            Lightning-fast response times with optimized inference engines.
+                        </p>
+                    </div>
+                    <div class="capability-card">
+                        <div class="capability-icon">🖥️</div>
+                        <h3 class="capability-title">Scalable Infrastructure</h3>
+                        <p class="capability-description">
+                            Cloud-native architecture supporting millions of concurrent users.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="studio-cta">
+            <div class="studio-cta-container">
+                <h2 class="cta-title">Ready to Experience AI Innovation?</h2>
+                <p class="cta-description">
+                    Try our AI agents today or partner with us to build custom AI solutions for your organization.
+                </p>
+                <div class="cta-buttons">
+                    <button type="button" onclick="scrollToDemos()" class="cta-button">
+                        <span class="btn-icon">🔗</span>
+                        Try Live Demos Above
+                    </button>
+                    <a href="mailto:krumancorporations@gmail.com" class="cta-button">
+                        Partner with Us
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>© 2025 Kruman Corporations</p>
+        </div>
+    </footer>
+
+    <script>
+        // Toggle between video demo and Streamlit app
+        function toggleDemo(demoId, btnId) {
+            const demo = document.getElementById(demoId);
+            const btn = document.getElementById(btnId);
+            const videoId = demoId.replace('-demo', '-video');
+            const video = document.getElementById(videoId);
+            
+            if (demo.classList.contains('demo-hidden')) {
+                // Show Streamlit app, hide video
+                demo.classList.remove('demo-hidden');
+                demo.classList.add('demo-visible');
+                video.classList.add('demo-hidden');
+                btn.textContent = 'Hide Demo';
+            } else {
+                // Hide Streamlit app, show video
+                demo.classList.add('demo-hidden');
+                demo.classList.remove('demo-visible');
+                video.classList.remove('demo-hidden');
+                btn.textContent = 'Try our App for free!!';
+            }
+        }
+
+        // Scroll to demos section
+        function scrollToDemos() {
+            const targetSection = document.getElementById('aistudio');
+            if (targetSection) {
+                targetSection.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        }
+
+        // Mobile menu toggle (basic implementation)
+        document.addEventListener('DOMContentLoaded', function() {
+            const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+            const navMenu = document.querySelector('.nav-menu');
+            
+            if (mobileMenuBtn && navMenu) {
+                mobileMenuBtn.addEventListener('click', function() {
+                    navMenu.style.display = navMenu.style.display === 'flex' ? 'none' : 'flex';
+                });
+            }
+
+            // Smooth scrolling for nav links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
