@@ -22,20 +22,20 @@
   <nav class="nav-container">
     <div class="nav-content">
       
-      <!-- Logo Left -->
-      <div class="logo-container">
-        <img src="assets/images/krumanlogo.png" alt="Kruman Corporations" class="logo">
-      </div>
 
-      <!-- Nav Menu (center/right on desktop, hidden on mobile) -->
-      <div class="nav-menu">
+      <!-- Nav Menu (right on desktop, hidden on mobile) -->
+      <div class="nav-menu" id="navMenu">
         <a href="#home" class="nav-link">Home</a>
-        <a href="#whitepapers" class="nav-link">Research</a>
-        <a href="aistudio.html" class="nav-link">AI Product Studio</a>
+        <a href="aistudio.html" class="nav-link">AI Studio</a>
+        <a href="whitepapers.html" class="nav-link">Research and Insights Hub</a>
       </div>
 
       <!-- Hamburger Icon (right) -->
-      <button class="mobile-menu-btn">☰</button>
+      <button class="mobile-menu-btn" id="mobileMenuBtn">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </button>
     </div>
   </nav>
 </header>
@@ -45,6 +45,11 @@
     <div class="hero-container">
       <div class="hero-content">
         <div class="hero-badge">
+          <!-- Logo Center -->
+      <div class="logo-container">
+        <img src="assets/images/krumanlogo.png" alt="Kruman Corporations" class="logo">
+        <h1 class="company-name">Kruman Corporations</h1>
+      </div>
           <span class="status-dot"></span>
           AI Research & Development Lab
         </div>
@@ -59,13 +64,12 @@
         </p>
         
         <div class="hero-buttons">
-          <button class="btn-primary">
+          <a href="aistudio.html" class="btn-primary">
             💼  Services
-            
-          </button>
-          <button class="btn-secondary">
+          </a>
+          <a href="whitepapers.html" class="btn-secondary">
             👥  Collaboration
-          </button>
+          </a>
         </div>
         
         <div class="hero-footer">
@@ -129,18 +133,6 @@
       <div class="features-grid">
         <div class="feature-card">
           <div class="card-header">
-            <div class="card-icon">🧠</div>
-            <span class="card-category">Education</span>
-          </div>
-          <h3 class="card-title">AI Educational Tutor</h3>
-          <p class="card-description">
-            Conversational learning assistant for K-12 students in multiple Indian languages.
-          </p>
-          <button class="card-button">Read more →</button>
-        </div>
-
-        <div class="feature-card">
-          <div class="card-header">
             <div class="card-icon">💻</div>
             <span class="card-category">Enterprise</span>
           </div>
@@ -148,7 +140,7 @@
           <p class="card-description">
             Predictive analytics and automated insights tailored for Indian SMEs.
           </p>
-          <button class="card-button">Try Now →</button>
+          <a href="aistudio.html" class="card-button">Try Now →</a>
         </div>
 
         <div class="feature-card">
@@ -160,7 +152,7 @@
           <p class="card-description">
             LLMs fine-tuned for legal, education, and customer support workflows.
           </p>
-          <button class="card-button">Explore →</button>
+          <a href="aistudio.html" class="card-button">Explore →</a>
         </div>
 
         <div class="feature-card" id="whitepapers">
@@ -168,7 +160,7 @@
             <div class="card-icon">📚</div>
             <span class="card-category">Publications</span>
           </div>
-          <h3 class="card-title">Research & Whitepapers</h3>
+          <h3 class="card-title">Research & Publications</h3>
           <p class="card-description">
             Technical documentation on explainability, low-resource AI, and ethical design.
           </p>
@@ -223,10 +215,70 @@
     </div>
   </section>
 
+  <!-- Careers and Collaborations Section -->
+  <section class="careers-collaboration" id="careers-collaboration">
+    <div class="container">
+      <div class="careers-content">
+        <h2 class="section-title">Careers & Collaborations</h2>
+        <p class="section-description">
+          We have 2 verticals: AI SAAS and AI Research. Join our team for exciting career opportunities in AI SAAS, or collaborate with us on groundbreaking AI Research initiatives.
+        </p>
+        
+        <div class="careers-grid">
+          <div class="career-card">
+            <div class="career-icon">💼</div>
+            <h3 class="career-title">AI SAAS Careers</h3>
+            <p class="career-description">
+              Join our dynamic team building next-generation AI products and solutions for businesses worldwide.
+            </p>
+          </div>
+          
+          <div class="career-card">
+            <div class="career-icon">🔬</div>
+            <h3 class="career-title">AI Research Collaborations</h3>
+            <p class="career-description">
+              Partner with us on cutting-edge research projects that push the boundaries of artificial intelligence.
+            </p>
+          </div>
+        </div>
+        
+        <div class="careers-form">
+          <h3 class="form-title">Get in Touch</h3>
+          <form action="https://formspree.io/f/mjkbkqwd" method="POST" id="careersForm">
+            <div class="form-row">
+              <div class="form-group">
+                <input type="text" name="name" placeholder="Your Name" required />
+              </div>
+              <div class="form-group">
+                <input type="email" name="email" placeholder="Your Email" required />
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <input type="tel" name="contact" placeholder="Your Contact Number" required />
+              </div>
+              <div class="form-group">
+                <select name="interest" required>
+                  <option value="">Select Interest</option>
+                  <option value="career">Career Opportunity</option>
+                  <option value="collaboration">Research Collaboration</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-group">
+              <textarea name="message" placeholder="Tell us about your interest or experience" rows="4" required></textarea>
+            </div>
+            <button type="submit" class="submit-btn">Submit Application</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <section class="reach-us" id="contact">
   <div class="container">
     <h2>Reach out to us</h2>
-    <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+    <form action="https://formspree.io/f/mjkbkqwd" method="POST" id="contactForm">
       <div class="form-group">
         <input type="text" name="name" placeholder="Your Name" required />
       </div>
@@ -241,14 +293,13 @@
   </div>
 </section>
 
-
   <!-- Footer -->
   <footer class="footer">
     <div class="container">
       <div class="footer-content">
         <div class="footer-main">
           <div class="footer-logo-img">
-            <img src="assets/images/krumanlogo.png" alt=" logo" class="footer-logo-img">
+            <img src="assets/images/krumanlogo.png" alt="Kruman Corporations logo" class="footer-logo-img">
           </div>
           <p class="footer-description">
             An MCA-registered AI Lab at the intersection of Artificial and Human intelligence, 
@@ -275,14 +326,12 @@
         </div>
       </div>
         
-        
         <div class="footer-links">
           <div class="footer-column">
-            <h4 class="footer-heading">Research</h4>
+            <h4 class="footer-heading">Products</h4>
             <ul class="footer-list">
-              <li><a href="#whitepapers">Whitepapers</a></li>
-              <li><a href="#publications">Publications</a></li>
-           <li><a href="#collaboration">Collaboration</a></li>
+              <li><a href="aistudio.html">AI Studio</a></li>
+              <li><a href="whitepapers.html">Research Publications</a></li>
             </ul>
           </div>
           
@@ -290,8 +339,7 @@
             <h4 class="footer-heading">Company</h4>
             <ul class="footer-list">
               <li><a href="#about">About Us</a></li>
-              <li><a href="#careers">Careers</a></li>
-              <li><a href="#newsroom">Newsroom</a></li>
+              <li><a href="#careers-collaboration">Careers</a></li>
               <li><a href="#contact">Contact</a></li>
             </ul>
           </div>
