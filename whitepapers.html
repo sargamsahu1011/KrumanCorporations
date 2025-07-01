@@ -1,60 +1,144 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Whitepapers | Kruman Corporations</title>
-  <link rel="stylesheet" href="assets/css/whitepapers.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Research and Insights Hub - Kruman Corporations</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/whitepapers.css">
 </head>
 <body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav-container">
+            <div class="nav-content">
+                
+                <!-- Navigation Menu (Right-aligned) -->
+                <div class="nav-menu" id="navMenu">
+                    <a href="index.html" class="nav-link">Home</a>
+                    <a href="aistudio.html" class="nav-link">AI Studio</a>
+                    <a href="whitepapers.html" class="nav-link active">Research and Insights Hub</a>
+                </div>
 
-  <header class="header">
-    <nav class="nav-container">
-      <div class="nav-content">
-        <div class="logo-container">
-          <a href="index.html"><img src="assets/images/krumanlogo.png" alt="Kruman Logo" class="logo"></a>
+                <!-- Mobile Menu Button -->
+                <button class="mobile-menu-btn" id="mobileMenuBtn">
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="research-hero">
+            <div class="container">
+                <div class="hero-content">
+                 
+                <div class="logo-section">
+                    <div class="logo-container">
+                        <a href="index.html">
+                            <img src="assets/images/krumanlogo.png" alt="Kruman Corporations" class="logo">
+                        </a>
+                        <div class="company-name">
+                            <span class="company-text">Kruman</span>
+                            <span class="company-text">Corporations</span>
+                        </div>
+                    </div>
+                </div>
+
+                    <h1 class="hero-title">Research and Insights Hub</h1>
+                    <div class="hero-description">
+                        <p>Welcome to our Research & Insights hub — a space where knowledge meets innovation.</p>
+                        <p>Here, we showcase the original research, whitepapers, and thought-provoking articles authored by our interns, employees, and collaborators. From technical explorations to visionary ideas, these publications reflect our ongoing commitment to advancing artificial intelligence, technology, and human potential. We invite you to explore, learn, and be inspired by the work that drives our mission forward.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Publications Section -->
+        <section class="publications-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Publications & Whitepapers</h2>
+                    <p class="section-subtitle">Explore our technical publications and strategic research work</p>
+                </div>
+
+                <div class="publications-grid">
+                    <!-- Whitepaper 1 -->
+                    <div class="publication-card">
+                        <div class="card-header">
+                            <div class="card-icon">📄</div>
+                            <span class="card-category">Web Strategy</span>
+                        </div>
+                        <h3 class="card-title">AI Website Strategy for SaaS & R&D</h3>
+                        <p class="card-description">
+                            A strategic design guide inspired by OpenAI and Anthropic — focused on building high-trust websites for AI startups.
+                        </p>
+                        <div class="card-meta">
+                            <p class="author-info">
+                                <strong>Author:</strong> Sargam Sahu, Intern at Kruman Corporations
+                            </p>
+                            <p class="publication-date">Published: June 2025</p>
+                        </div>
+                        <div class="card-actions">
+                            <a href="assets/Whitepapers/Kruman_WEb_strategy.pdf" target="_blank" class="btn-primary">
+                                <span class="btn-icon">📥</span>
+                                Download PDF
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Placeholder for more whitepapers -->
+                    <div class="publication-card coming-soon">
+                        <div class="card-header">
+                            <div class="card-icon">🔬</div>
+                            <span class="card-category">AI Research</span>
+                        </div>
+                        <h3 class="card-title">More Publications Coming Soon</h3>
+                        <p class="card-description">
+                            We're continuously researching and publishing new insights. Stay tuned for more groundbreaking research.
+                        </p>
+                        <div class="card-meta">
+                            <p class="author-info">
+                                <strong>Team:</strong> Kruman Corporations Research Division
+                            </p>
+                        </div>
+                        <div class="card-actions">
+                            <button class="btn-secondary" disabled>
+                                <span class="btn-icon">⏳</span>
+                                Coming Soon
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="research-cta">
+            <div class="container">
+                <div class="cta-content">
+                    <h2 class="cta-title">Want to Collaborate?</h2>
+                    <p class="cta-description">
+                        Interested in collaborating on research or contributing to our publications? We'd love to hear from you.
+                    </p>
+                    <div class="cta-contact">
+                        <p class="contact-text">Get in touch: <strong>krumancorporations@gmail.com</strong></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>© 2025 Kruman Corporations</p>
         </div>
-        <div class="nav-menu">
-          <a href="index.html#home" class="nav-link">Home</a>
-          <a href="index.html#research" class="nav-link">Research</a>
-          <a href="index.html#products" class="nav-link">Product Studio</a>
-        </div>
-      </div>
-    </nav>
-  </header>
+    </footer>
 
-  <section class="features" style="margin-top: 7rem;">
-    <div class="container">
-      <h2 class="section-title">Whitepapers</h2>
-      <p class="section-description">Explore our technical publications and strategic research work.</p>
-
-      <div class="features-grid">
-        <!-- Whitepaper 1 -->
-        <div class="feature-card">
-          <div class="card-header">
-            <div class="card-icon">📄</div>
-            <span class="card-category">Web Strategy</span>
-          </div>
-          <h3 class="card-title">AI Website Strategy for SaaS & R&D</h3>
-          <p class="card-description">
-            A strategic design guide inspired by OpenAI and Anthropic — focused on building high-trust websites for AI startups.
-          </p>
-          <p style="font-size: 0.9rem; color: #6b7280;">
-            <strong>Author:</strong> Sargam Sahu, Intern at Kruman Corporations
-          </p>
-          <a href="assets/Whitepapers/Kruman_WEb_strategy.pdf" target="_blank" class="card-button">📥 Read PDF</a>
-        </div>
-
-        <!-- Add more papers as needed -->
-      </div>
-    </div>
-  </section>
-
-  <footer class="footer">
-    <div class="container">
-      <p>© 2025 Kruman Corporations</p>
-    </div>
-  </footer>
-
+    <script src="script.js"></script>
 </body>
 </html>
