@@ -51,7 +51,13 @@ body {
 }
 
 .logo-container {
-  flex-shrink: 0;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
 }
 
 .logo {
@@ -67,6 +73,14 @@ body {
   transform: scale(1.05);
 }
 
+.company-name {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #111827;
+  white-space: nowrap;
+  margin: 0;
+}
+
 .nav-menu {
   display: flex;
   align-items: center;
@@ -74,6 +88,7 @@ body {
   list-style: none;
   margin: 0;
   padding: 0;
+  margin-left: auto;
 }
 
 .nav-link {
@@ -104,28 +119,32 @@ body {
   width: 100%;
 }
 
-/* Mobile Menu Button */
+/* Mobile Menu Button - Runway ML Style */
 .mobile-menu-btn {
   display: none;
   flex-direction: column;
-  background: none;
+  justify-content: space-around;
+  width: 30px;
+  height: 30px;
+  background: transparent;
   border: none;
   cursor: pointer;
-  padding: 0.5rem;
+  padding: 0;
   z-index: 1001;
+  margin-left: auto;
 }
 
 .hamburger-line {
-  width: 25px;
-  height: 3px;
+  width: 100%;
+  height: 2px;
   background-color: #1f2937;
-  margin: 3px 0;
-  transition: 0.3s;
-  border-radius: 2px;
+  border-radius: 1px;
+  transition: all 0.3s ease;
+  transform-origin: center;
 }
 
 .mobile-menu-btn.active .hamburger-line:nth-child(1) {
-  transform: rotate(-45deg) translate(-5px, 6px);
+  transform: rotate(45deg) translate(5px, 5px);
 }
 
 .mobile-menu-btn.active .hamburger-line:nth-child(2) {
@@ -133,12 +152,12 @@ body {
 }
 
 .mobile-menu-btn.active .hamburger-line:nth-child(3) {
-  transform: rotate(45deg) translate(-5px, -6px);
+  transform: rotate(-45deg) translate(7px, -6px);
 }
 
 /* Hero Section */
 .hero {
-  padding-top: 7rem;
+  padding-top: 10rem;
   padding-bottom: 4rem;
   background: linear-gradient(135deg, #f8fafc 0%, #ffffff 50%, #dbeafe 100%);
   min-height: 100vh;
@@ -547,6 +566,110 @@ body {
   font-size: 0.875rem;
 }
 
+/* Careers and Collaborations Section */
+.careers-collaboration {
+  padding: 5rem 0;
+  background-color: #ffffff;
+}
+
+.careers-content {
+  max-width: 1000px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.careers-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin: 3rem 0;
+}
+
+.career-card {
+  background-color: #f9fafb;
+  padding: 2rem;
+  border-radius: 1rem;
+  border: 1px solid #e5e7eb;
+  transition: all 0.3s ease;
+}
+
+.career-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.career-icon {
+  width: 4rem;
+  height: 4rem;
+  background-color: #dbeafe;
+  border-radius: 0.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1.5rem;
+  font-size: 2rem;
+}
+
+.career-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #111827;
+  margin-bottom: 1rem;
+}
+
+.career-description {
+  color: #4b5563;
+  line-height: 1.6;
+}
+
+.careers-form {
+  background-color: #f9fafb;
+  padding: 3rem;
+  border-radius: 1rem;
+  border: 1px solid #e5e7eb;
+  margin-top: 3rem;
+  text-align: left;
+}
+
+.form-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #111827;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+  width: 100%;
+  padding: 0.875rem 1rem;
+  border: 1px solid #d1d5db;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  font-family: inherit;
+  transition: border-color 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+  outline: none;
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
 /* Contact Section */
 .reach-us {
   background-color: #f9fafb;
@@ -604,6 +727,13 @@ body {
   background-color: #1d4ed8;
   transform: translateY(-2px);
   box-shadow: 0 4px 14px rgba(37, 99, 235, 0.3);
+}
+
+.submit-btn:disabled {
+  background-color: #9ca3af;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
 }
 
 /* Footer */
@@ -721,6 +851,26 @@ body {
   font-size: 0.875rem;
 }
 
+/* Form Success/Error Messages */
+.form-message {
+  padding: 1rem;
+  border-radius: 0.5rem;
+  margin-bottom: 1rem;
+  font-weight: 500;
+}
+
+.form-message.success {
+  background-color: #dcfce7;
+  color: #166534;
+  border: 1px solid #bbf7d0;
+}
+
+.form-message.error {
+  background-color: #fef2f2;
+  color: #dc2626;
+  border: 1px solid #fecaca;
+}
+
 /* Responsive Design */
 @media (max-width: 1024px) {
   .container {
@@ -761,6 +911,7 @@ body {
     opacity: 0;
     visibility: hidden;
     transition: all 0.3s ease;
+    margin-left: 0;
   }
   
   .nav-menu.active {
@@ -774,8 +925,14 @@ body {
     padding: 0.5rem 0;
   }
   
+  .logo-container {
+    position: static;
+    transform: none;
+    order: -1;
+  }
+  
   .hero {
-    padding-top: 6rem;
+    padding-top: 8rem;
     padding-bottom: 3rem;
   }
   
@@ -810,6 +967,11 @@ body {
     gap: 1.5rem;
   }
   
+  .careers-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
   .values-grid {
     grid-template-columns: 1fr;
     gap: 1rem;
@@ -831,6 +993,14 @@ body {
   .social-icons {
     justify-content: center;
   }
+  
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+  
+  .careers-form {
+    padding: 2rem;
+  }
 }
 
 @media (max-width: 480px) {
@@ -847,8 +1017,12 @@ body {
     width: 40px;
   }
   
+  .company-name {
+    font-size: 1rem;
+  }
+  
   .hero {
-    padding-top: 5rem;
+    padding-top: 7rem;
   }
   
   .hero-badge {
@@ -881,8 +1055,13 @@ body {
   }
   
   .form-group input,
-  .form-group textarea {
+  .form-group textarea,
+  .form-group select {
     padding: 0.75rem;
+  }
+  
+  .careers-form {
+    padding: 1.5rem;
   }
 }
 
