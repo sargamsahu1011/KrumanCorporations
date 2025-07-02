@@ -1,750 +1,902 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
-<meta charset="UTF-8">
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AI Studio - Kruman Corporations</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <style>
-        html{ 
-          scroll-behavior: smooth;
+        html { 
+            scroll-behavior: smooth;
         }
 
         * {
-          margin: 0;
-          padding: 0;
-          box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
 
         body {
-          font-family: 'Inter', sans-serif;
-          line-height: 1.6;
-          color: #1f2937;
-          background-color: #ffffff;
-          margin: 0;
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: #1f2937;
+            background-color: #ffffff;
+            margin: 0;
+            overflow-x: hidden;
         }
 
         main {
-          flex: 1;
-          display: flex;
-          flex-direction: column;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
         }
 
         .container {
-          max-width: 1200px;
-          margin: 0 auto;
-          padding: 0 1.5rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
         }
 
         /* Header Styles */
         .header {
-          position: fixed;
-          top: 0;
-          left: 0;
-          right: 0;
-          background-color: rgba(255, 255, 255, 0.95);
-          backdrop-filter: blur(12px);
-          z-index: 50;
-          border-bottom: 1px solid #e5e7eb;
-          padding: 1rem 0;
-        }
-
-        .nav-container {
-          max-width: 1200px;
-          margin: 0 auto;
-          padding: 0 1.5rem;
-        }
-
-        .nav-content {
-          display: flex;
-          align-items: center;
-          justify-content: space-between;
-        }
-
-        .logo-container {
-          position: absolute;
-          left: 50%;
-          transform: translateX(-50%);
-          display: flex;
-          align-items: center;
-          gap: 1rem;
-        }
-
-        .logo {
-          height: 60px;
-          width: 60px;
-          object-fit: cover;
-          border-radius: 50%;
-          display: block;
-        }
-
-        .company-name {
-          font-size: 1.5rem;
-          font-weight: 700;
-          color: #111827;
-          white-space: nowrap;
-        }
-
-        .nav-menu {
-          display: flex;
-          align-items: center;
-          gap: 2rem;
-          margin-left: auto;
-        }
-
-        .nav-link {
-          color: #374151;
-          text-decoration: none;
-          font-weight: 500;
-          transition: color 0.2s ease;
-        }
-
-        .nav-link:hover {
-          color: #2563eb;
-        }
-
-        .mobile-menu-btn {
-          display: none;
-          flex-direction: column;
-          gap: 4px;
-          background: none;
-          border: none;
-          cursor: pointer;
-          padding: 8px;
-          margin-left: auto;
-        }
-
-        .hamburger-line {
-          width: 25px;
-          height: 3px;
-          background-color: #374151;
-          transition: all 0.3s ease;
-        }
-
-        .mobile-menu-btn.active .hamburger-line:nth-child(1) {
-          transform: rotate(45deg) translate(5px, 5px);
-        }
-
-        .mobile-menu-btn.active .hamburger-line:nth-child(2) {
-          opacity: 0;
-        }
-
-        .mobile-menu-btn.active .hamburger-line:nth-child(3) {
-          transform: rotate(-45deg) translate(7px, -6px);
-        }
-
-        /* Hero Section */
-        .page-hero.studio-hero {
-          text-align: center;
-          padding: 8rem 1rem 4rem;
-          background: linear-gradient(to bottom, #ffffff, #f9f5ff);
-          min-height: 100vh;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-        }
-
-        .page-hero-container {
-          max-width: 768px;
-          margin: 0 auto;
-        }
-
-        .page-hero-badge {
-          display: inline-block;
-          background-color: #f3e8ff;
-          color: #7c3aed;
-          padding: 0.5rem 1rem;
-          border-radius: 9999px;
-          font-weight: 500;
-          font-size: 0.875rem;
-          margin-bottom: 1.5rem;
-        }
-
-        .hero-badge-icon {
-          margin-right: 0.5rem;
-        }
-
-        .page-hero-title {
-          font-size: 3rem;
-          font-weight: 800;
-          margin-bottom: 1rem;
-          color: #111827;
-          line-height: 1.1;
-        }
-
-        .hero-gradient {
-          background: linear-gradient(to right, #8b5cf6, #3b82f6, #10b981);
-          background-clip: text;
-          -webkit-background-clip: text;
-          color: transparent;
-          display: inline-block;
-        }
-
-        .page-hero-description {
-          font-size: 1.125rem;
-          color: #4b5563;
-          max-width: 36rem;
-          margin: 0 auto;
-          line-height: 1.75;
-        }
-
-        /* Studio Stats */
-        .studio-stats {
-          background-color: #ffffff;
-          padding: 3rem 1rem;
-          border-top: 1px solid #e5e7eb;
-        }
-
-        .studio-stats-container {
-          display: flex;
-          flex-wrap: wrap;
-          justify-content: center;
-          gap: 4rem;
-          max-width: 900px;
-          margin: 0 auto;
-        }
-
-        .studio-stat-item {
-          text-align: center;
-          min-width: 120px;
-        }
-
-        .studio-stat-number {
-          font-size: 2rem;
-          font-weight: 700;
-          color: #8b5cf6;
-          margin-bottom: 0.25rem;
-        }
-
-        .studio-stat-label {
-          font-size: 1rem;
-          color: #374151;
-        }
-
-        /* Section Headers */
-        .section-header {
-          text-align: center;
-          margin-bottom: 3rem;
-        }
-
-        .section-title {
-          font-size: 2.5rem;
-          font-weight: 700;
-          color: #111827;
-          margin-bottom: 1rem;
-        }
-
-        .section-description {
-          font-size: 1.125rem;
-          color: #6b7280;
-          max-width: 600px;
-          margin: 0 auto;
-          line-height: 1.6;
-        }
-
-        /* Live Agents Section */
-        .live-agents {
-          padding: 5rem 1rem;
-          background: #f9fafb;
-        }
-
-        .live-agents-container {
-          max-width: 1200px;
-          margin: 0 auto;
-        }
-
-        .agent-card {
-          display: grid;
-          grid-template-columns: 1fr 1fr;
-          gap: 0;
-          background: white;
-          border-radius: 1rem;
-          overflow: hidden;
-          box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
-          margin-bottom: 3rem;
-          border: 1px solid #e5e7eb;
-        }
-
-        .hr-agent .agent-content {
-          background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
-        }
-
-        .inventory-agent .agent-content {
-          background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);
-        }
-
-        .student-agent .agent-content {
-          background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
-        }
-
-        .agent-content {
-          padding: 3rem;
-        }
-
-        .agent-header {
-          display: flex;
-          align-items: center;
-          gap: 1rem;
-          margin-bottom: 1.5rem;
-        }
-
-        .agent-icon {
-          width: 3rem;
-          height: 3rem;
-          background: linear-gradient(135deg, #3b82f6, #8b5cf6);
-          border-radius: 0.75rem;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          font-size: 1.5rem;
-          color: white;
-        }
-
-        .inventory-agent .agent-icon {
-          background: linear-gradient(135deg, #10b981, #059669);
-        }
-
-        .student-agent .agent-icon {
-          background: linear-gradient(135deg, #f59e0b, #d97706);
-        }
-
-        .agent-badge {
-          padding: 0.25rem 0.75rem;
-          border-radius: 1rem;
-          font-size: 0.75rem;
-          font-weight: 600;
-          text-transform: uppercase;
-          letter-spacing: 0.05em;
-        }
-
-        .agent-badge.enterprise {
-          background: #3b82f6;
-          color: white;
-        }
-
-        .agent-badge.msme {
-          background: #10b981;
-          color: white;
-        }
-
-        .agent-title {
-          font-size: 1.875rem;
-          font-weight: 800;
-          color: #1f2937;
-          margin-bottom: 0.5rem;
-          line-height: 1.2;
-        }
-
-        .agent-headline {
-          font-size: 1.125rem;
-          font-weight: 600;
-          color: #3b82f6;
-          margin-bottom: 1rem;
-        }
-
-        .inventory-agent .agent-headline {
-          color: #10b981;
-        }
-
-        .student-agent .agent-headline {
-          color: #f59e0b;
-        }
-
-        .agent-description {
-          font-size: 1rem;
-          color: #6b7280;
-          margin-bottom: 2rem;
-          line-height: 1.7;
-        }
-
-        .agent-features {
-          list-style: none;
-          margin-bottom: 2rem;
-        }
-
-        .agent-features li {
-          display: flex;
-          align-items: center;
-          gap: 0.75rem;
-          padding: 0.5rem 0;
-          color: #374151;
-          font-weight: 500;
-        }
-
-        .feature-icon {
-          font-size: 1.25rem;
-          color: #10b981;
-        }
-
-        .agent-note {
-          font-size: 0.875rem;
-          color: #6b7280;
-          margin-bottom: 1.5rem;
-          font-style: italic;
-        }
-
-        .agent-cta {
-          background: rgba(59, 130, 246, 0.1);
-          padding: 1rem;
-          border-radius: 0.5rem;
-          border: 1px solid rgba(59, 130, 246, 0.2);
-        }
-
-        .inventory-agent .agent-cta {
-          background: rgba(16, 185, 129, 0.1);
-          border-color: rgba(16, 185, 129, 0.2);
-        }
-
-        .student-agent .agent-cta {
-          background: rgba(245, 158, 11, 0.1);
-          border-color: rgba(245, 158, 11, 0.2);
-        }
-
-        .cta-text {
-          font-weight: 600;
-          color: #1f2937;
-          margin-bottom: 0.5rem;
-        }
-
-        .contact-info {
-          color: #3b82f6;
-          font-weight: 500;
-        }
-
-        .inventory-agent .contact-info {
-          color: #10b981;
-        }
-
-        .student-agent .contact-info {
-          color: #f59e0b;
-        }
-
-        /* Demo Section */
-        .agent-demo {
-          background: linear-gradient(135deg, #dbeafe 0%, #f3e8ff 100%);
-          position: relative;
-        }
-
-        .inventory-agent .agent-demo {
-          background: linear-gradient(135deg, #d1fae5 0%, #a7f3d0 100%);
-        }
-
-        .student-agent .agent-demo {
-          background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
-        }
-
-        .demo-container {
-          width: 100%;
-          height: 600px;
-          padding: 1.5rem;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-        }
-
-        .demo-video {
-          width: 100%;
-          height: 100%;
-          border: none;
-          border-radius: 0.75rem;
-          background: white;
-          box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
-          object-fit: cover;
-        }
-
-        /* Student Performance video specific styling */
-        .student-agent .demo-video {
-          object-fit: contain;
-          max-height: 100%;
-        }
-
-        /* Coming Soon Agents */
-        .coming-soon-agents {
-          background-color: #f9fafb;
-          padding: 5rem 1rem;
-          text-align: center;
-        }
-
-        .coming-soon-container {
-          max-width: 1200px;
-          margin: 0 auto;
-        }
-
-        .agents-grid {
-          display: grid;
-          grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-          gap: 2rem;
-          margin-top: 3rem;
-        }
-
-        .coming-soon-card {
-          background-color: #ffffff;
-          border: 2px dashed #e5e7eb;
-          border-radius: 1rem;
-          padding: 2rem;
-          transition: box-shadow 0.3s ease;
-        }
-
-        .coming-soon-card:hover {
-          box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
-        }
-
-        .coming-soon-icon {
-          font-size: 2.5rem;
-          background: #ecfdf5;
-          border-radius: 0.75rem;
-          width: 3.5rem;
-          height: 3.5rem;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          margin: 0 auto 1rem;
-        }
-
-        .coming-soon-badge {
-          background-color: #f3f4f6;
-          color: #111827;
-          font-size: 0.875rem;
-          font-weight: 600;
-          border-radius: 9999px;
-          padding: 0.25rem 0.75rem;
-          display: inline-block;
-          margin-bottom: 0.75rem;
-        }
-
-        .coming-soon-title {
-          font-size: 1.25rem;
-          font-weight: 700;
-          color: #111827;
-          margin-bottom: 0.5rem;
-        }
-
-        .coming-soon-description {
-          font-size: 1rem;
-          color: #4b5563;
-          line-height: 1.5;
-          margin-bottom: 1.5rem;
-        }
-
-        .coming-soon-timeline {
-          background-color: #fef3c7;
-          color: #92400e;
-          padding: 0.5rem 1rem;
-          border-radius: 9999px;
-          font-size: 0.875rem;
-          font-weight: 600;
-          display: inline-block;
-        }
-
-        /* Technical Capabilities */
-        .technical-capabilities {
-          background-color: #f9fafb;
-          padding: 5rem 1rem;
-          text-align: center;
-        }
-
-        .technical-capabilities-container {
-          max-width: 1200px;
-          margin: 0 auto;
-        }
-
-        .capabilities-grid {
-          display: grid;
-          grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-          gap: 2rem;
-          margin-top: 3rem;
-        }
-
-        .capability-card {
-          background-color: #ffffff;
-          padding: 2rem 1.5rem;
-          border-radius: 1rem;
-          box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-          transition: transform 0.3s ease;
-        }
-
-        .capability-card:hover {
-          transform: translateY(-5px);
-        }
-
-        .capability-icon {
-          font-size: 2rem;
-          margin-bottom: 1rem;
-          display: inline-block;
-        }
-
-        .capability-title {
-          font-size: 1.125rem;
-          font-weight: 600;
-          color: #111827;
-          margin-bottom: 0.75rem;
-        }
-
-        .capability-description {
-          font-size: 0.95rem;
-          color: #6b7280;
-          line-height: 1.5;
-        }
-
-        /* CTA Section */
-        .studio-cta {
-          padding: 4rem 2rem;
-          background: linear-gradient(135deg, #8b5cf6, #3b82f6);
-          color: white;
-          text-align: center;
-        }
-
-        .studio-cta-container {
-          width: 100%;
-          max-width: 900px;
-          margin: 0 auto;
-          text-align: center;
-        }
-
-        .cta-title {
-          font-size: 2.5rem;
-          font-weight: 800;
-          margin-bottom: 1.5rem;
-          line-height: 1.1;
-        }
-
-        .cta-description {
-          font-size: 1.25rem;
-          margin-bottom: 2rem;
-          opacity: 0.9;
-          line-height: 1.6;
-        }
-
-        .cta-buttons {
-          display: flex;
-          gap: 1rem;
-          justify-content: center;
-          flex-wrap: wrap;
-        }
-
-        .cta-buttons a,
-        .cta-buttons button {
-          background: white;
-          color: #3b82f6;
-          padding: 0.75rem 1.5rem;
-          border: none;
-          border-radius: 0.5rem;
-          font-weight: 600;
-          cursor: pointer;
-          transition: all 0.3s ease;
-          display: inline-flex;
-          align-items: center;
-          gap: 0.5rem;
-          text-decoration: none;
-          box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-        }
-
-        .cta-buttons a:hover,
-        .cta-buttons button:hover {
-          transform: translateY(-2px);
-          box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
-        }
-
-        /* Footer */
-        .footer {
-          background-color: #111827;
-          color: #ffffff;
-          padding: 2rem 1rem;
-          text-align: center;
-          font-size: 0.875rem;
-        }
-
-        .footer .container {
-          max-width: 900px;
-          margin: 0 auto;
-          padding: 0 1rem;
-        }
-
-        .footer p {
-          color: #9ca3af;
-          font-size: 0.875rem;
-          margin: 0;
-        }
-
-        /* Mobile Responsive */
-        @media (max-width: 768px) {
-          .nav-menu {
             position: fixed;
-            top: 100%;
+            top: 0;
             left: 0;
             right: 0;
             background-color: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(12px);
-            flex-direction: column;
+            z-index: 50;
+            border-bottom: 1px solid #e5e7eb;
+            padding: 1rem 0;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        .nav-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: relative;
+        }
+
+        .logo-container {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            display: flex;
+            align-items: center;
             gap: 1rem;
-            padding: 2rem;
-            border-top: 1px solid #e5e7eb;
-            transform: translateY(-100%);
-            transition: transform 0.3s ease;
-            display: none;
-          }
+        }
 
-          .nav-menu.active {
-            transform: translateY(0);
+        .logo {
+            height: 60px;
+            width: 60px;
+            object-fit: cover;
+            border-radius: 50%;
+            display: block;
+        }
+
+        .nav-menu {
             display: flex;
-          }
+            align-items: center;
+            gap: 2rem;
+            margin-left: auto;
+        }
 
-          .mobile-menu-btn {
-            display: flex;
-          }
-
-          .logo-container {
-            position: static;
-            transform: none;
-          }
-
-          .company-name {
-            font-size: 1.25rem;
-          }
-
-          .logo {
-            height: 50px;
-            width: 50px;
-          }
-
-          .agent-card {
-            grid-template-columns: 1fr;
-          }
-
-          .page-hero-title {
-            font-size: 2rem;
-          }
-
-          .agent-content {
-            padding: 2rem;
-          }
-
-          .cta-title {
-            font-size: 1.75rem;
-          }
-
-          .cta-description {
+        .nav-link {
+            color: #374151;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.2s ease;
             font-size: 1rem;
-          }
+        }
+
+        .nav-link:hover {
+            color: #2563eb;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            flex-direction: column;
+            gap: 4px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 8px;
+            margin-left: auto;
+            z-index: 51;
+        }
+
+        .hamburger-line {
+            width: 25px;
+            height: 3px;
+            background-color: #374151;
+            transition: all 0.3s ease;
+        }
+
+        .mobile-menu-btn.active .hamburger-line:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+
+        .mobile-menu-btn.active .hamburger-line:nth-child(2) {
+            opacity: 0;
+        }
+
+        .mobile-menu-btn.active .hamburger-line:nth-child(3) {
+            transform: rotate(-45deg) translate(7px, -6px);
+        }
+
+        /* Hero Section */
+        .page-hero.studio-hero {
+            text-align: center;
+            padding: 8rem 1rem 4rem;
+            background: linear-gradient(to bottom, #ffffff, #f9f5ff);
+            min-height: 70vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .page-hero-container {
+            max-width: 768px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        .hero-logo-container {
+            margin-bottom: 2rem;
+        }
+
+        .hero-logo {
+            height: 100px;
+            width: 100px;
+            object-fit: cover;
+            border-radius: 50%;
+            display: block;
+            margin: 0 auto;
+        }
+
+        .page-hero-badge {
+            display: inline-block;
+            background-color: #f3e8ff;
+            color: #7c3aed;
+            padding: 0.5rem 1rem;
+            border-radius: 9999px;
+            font-weight: 500;
+            font-size: 0.875rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-badge-icon {
+            margin-right: 0.5rem;
+        }
+
+        .page-hero-title {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            color: #111827;
+            line-height: 1.1;
+        }
+
+        .hero-gradient {
+            background: linear-gradient(to right, #8b5cf6, #3b82f6, #10b981);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            display: inline-block;
+        }
+
+        .page-hero-description {
+            font-size: 1.125rem;
+            color: #4b5563;
+            max-width: 36rem;
+            margin: 0 auto;
+            line-height: 1.75;
+        }
+
+        /* Studio Stats */
+        .studio-stats {
+            background-color: #ffffff;
+            padding: 3rem 1rem;
+            border-top: 1px solid #e5e7eb;
+        }
+
+        .studio-stats-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 2rem;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .studio-stat-item {
+            text-align: center;
+        }
+
+        .studio-stat-number {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #8b5cf6;
+            margin-bottom: 0.25rem;
+        }
+
+        .studio-stat-label {
+            font-size: 1rem;
+            color: #374151;
+        }
+
+        /* Section Headers */
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #111827;
+            margin-bottom: 1rem;
+        }
+
+        .section-description {
+            font-size: 1.125rem;
+            color: #6b7280;
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        /* Live Agents Section */
+        .live-agents {
+            padding: 5rem 1rem;
+            background: #f9fafb;
+        }
+
+        .live-agents-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .agent-card {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            align-items: center;
+            gap: 0;
+            background: white;
+            border-radius: 1rem;
+            overflow: hidden;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+            margin-bottom: 3rem;
+            border: 1px solid #e5e7eb;
+        }
+
+        .hr-agent .agent-content {
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+        }
+
+        .inventory-agent .agent-content {
+            background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);
+        }
+
+        .student-agent .agent-content {
+            background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+        }
+
+        .agent-content {
+            padding: 3rem;
+        }
+
+        .agent-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .agent-icon {
+            width: 3rem;
+            height: 3rem;
+            background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+            border-radius: 0.75rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: white;
+            flex-shrink: 0;
+        }
+
+        .inventory-agent .agent-icon {
+            background: linear-gradient(135deg, #10b981, #059669);
+        }
+
+        .student-agent .agent-icon {
+            background: linear-gradient(135deg, #f59e0b, #d97706);
+        }
+
+        .agent-badge {
+            padding: 0.25rem 0.75rem;
+            border-radius: 1rem;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            white-space: nowrap;
+        }
+
+        .agent-badge.enterprise {
+            background: #3b82f6;
+            color: white;
+        }
+
+        .agent-badge.msme {
+            background: #10b981;
+            color: white;
+        }
+
+        .agent-title {
+            font-size: 1.875rem;
+            font-weight: 800;
+            color: #1f2937;
+            margin-bottom: 0.5rem;
+            line-height: 1.2;
+        }
+
+        .agent-headline {
+            font-size: 1.125rem;
+            font-weight: 600;
+            color: #3b82f6;
+            margin-bottom: 1rem;
+        }
+
+        .inventory-agent .agent-headline {
+            color: #10b981;
+        }
+
+        .student-agent .agent-headline {
+            color: #f59e0b;
+        }
+
+        .agent-description {
+            font-size: 1rem;
+            color: #6b7280;
+            margin-bottom: 2rem;
+            line-height: 1.7;
+        }
+
+        .agent-features {
+            list-style: none;
+            margin-bottom: 2rem;
+        }
+
+        .agent-features li {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+            padding: 0.5rem 0;
+            color: #374151;
+            font-weight: 500;
+        }
+
+        .feature-icon {
+            font-size: 1.25rem;
+            color: #10b981;
+            flex-shrink: 0;
+            margin-top: 0.125rem;
+        }
+
+        .agent-note {
+            font-size: 0.875rem;
+            color: #6b7280;
+            margin-bottom: 1.5rem;
+            font-style: italic;
+        }
+
+        .agent-cta {
+            background: rgba(59, 130, 246, 0.1);
+            padding: 1rem;
+            border-radius: 0.5rem;
+            border: 1px solid rgba(59, 130, 246, 0.2);
+        }
+
+        .inventory-agent .agent-cta {
+            background: rgba(16, 185, 129, 0.1);
+            border-color: rgba(16, 185, 129, 0.2);
+        }
+
+        .student-agent .agent-cta {
+            background: rgba(245, 158, 11, 0.1);
+            border-color: rgba(245, 158, 11, 0.2);
+        }
+
+        .cta-text {
+            font-weight: 600;
+            color: #1f2937;
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-info {
+            color: #3b82f6;
+            font-weight: 500;
+            word-break: break-all;
+        }
+
+        .inventory-agent .contact-info {
+            color: #10b981;
+        }
+
+        .student-agent .contact-info {
+            color: #f59e0b;
+        }
+
+        /* Demo Section */
+        .agent-demo {
+            background: linear-gradient(135deg, #dbeafe 0%, #f3e8ff 100%);
+            position: relative;
+        }
+
+        .inventory-agent .agent-demo {
+            background: linear-gradient(135deg, #d1fae5 0%, #a7f3d0 100%);
+        }
+
+        .student-agent .agent-demo {
+            background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+        }
+       
+        .demo-container {
+            width: 100%;
+            height: 600px;
+            padding: 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .demo-video {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            border-radius: 0.75rem;
+        }
+
+        /* Coming Soon Agents */
+        .coming-soon-agents {
+            background-color: #f9fafb;
+            padding: 5rem 1rem;
+            text-align: center;
+        }
+
+        .coming-soon-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .agents-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .coming-soon-card {
+            background-color: #ffffff;
+            border: 2px dashed #e5e7eb;
+            border-radius: 1rem;
+            padding: 2rem;
+            transition: box-shadow 0.3s ease;
+        }
+
+        .coming-soon-card:hover {
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+        }
+
+        .coming-soon-icon {
+            font-size: 2.5rem;
+            background: #ecfdf5;
+            border-radius: 0.75rem;
+            width: 3.5rem;
+            height: 3.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+        }
+
+        .coming-soon-badge {
+            background-color: #f3f4f6;
+            color: #111827;
+            font-size: 0.875rem;
+            font-weight: 600;
+            border-radius: 9999px;
+            padding: 0.25rem 0.75rem;
+            display: inline-block;
+            margin-bottom: 0.75rem;
+        }
+
+        .coming-soon-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #111827;
+            margin-bottom: 0.5rem;
+        }
+
+        .coming-soon-description {
+            font-size: 1rem;
+            color: #4b5563;
+            line-height: 1.5;
+            margin-bottom: 1.5rem;
+        }
+
+        .coming-soon-timeline {
+            background-color: #fef3c7;
+            color: #92400e;
+            padding: 0.5rem 1rem;
+            border-radius: 9999px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            display: inline-block;
+        }
+
+        /* Technical Capabilities */
+        .technical-capabilities {
+            background-color: #ffffff;
+            padding: 5rem 1rem;
+            text-align: center;
+        }
+
+        .technical-capabilities-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .capabilities-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .capability-card {
+            background-color: #f9fafb;
+            padding: 2rem 1.5rem;
+            border-radius: 1rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease;
+            border: 1px solid #e5e7eb;
+        }
+
+        .capability-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .capability-icon {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            display: inline-block;
+        }
+
+        .capability-title {
+            font-size: 1.125rem;
+            font-weight: 600;
+            color: #111827;
+            margin-bottom: 0.75rem;
+        }
+
+        .capability-description {
+            font-size: 0.95rem;
+            color: #6b7280;
+            line-height: 1.5;
+        }
+
+        /* CTA Section */
+        .studio-cta {
+            padding: 4rem 2rem;
+            background: linear-gradient(135deg, #8b5cf6, #3b82f6);
+            color: white;
+            text-align: center;
+        }
+
+        .studio-cta-container {
+            width: 100%;
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .cta-title {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            line-height: 1.1;
+        }
+
+        .cta-description {
+            font-size: 1.25rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+            line-height: 1.6;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .cta-buttons a,
+        .cta-buttons button {
+            background: white;
+            color: #3b82f6;
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 0.5rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            text-decoration: none;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+        }
+
+        .cta-buttons a:hover,
+        .cta-buttons button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Footer */
+        .footer {
+            background-color: #111827;
+            color: #ffffff;
+            padding: 2rem 1rem;
+            text-align: center;
+            font-size: 0.875rem;
+        }
+
+        .footer .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        .footer p {
+            color: #9ca3af;
+            font-size: 0.875rem;
+            margin: 0;
+        }
+
+        /* Mobile Responsive Styles */
+        @media (max-width: 1024px) {
+            .demo-container {
+                height: 400px;
+            }
+            
+            .agent-content {
+                padding: 2rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-menu {
+                position: fixed;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background-color: rgba(255, 255, 255, 0.98);
+                backdrop-filter: blur(12px);
+                flex-direction: column;
+                gap: 2rem;
+                padding: 6rem 2rem 2rem;
+                justify-content: flex-start;
+                align-items: center;
+                transform: translateX(100%);
+                transition: transform 0.3s ease;
+                display: flex;
+                z-index: 49;
+            }
+
+            .nav-menu.active {
+                transform: translateX(0);
+            }
+
+            .nav-link {
+                font-size: 1.125rem;
+                font-weight: 600;
+            }
+
+            .mobile-menu-btn {
+                display: flex;
+            }
+
+            .logo-container {
+                position: static;
+                transform: none;
+            }
+
+            .logo {
+                height: 50px;
+                width: 50px;
+            }
+
+            .agent-card {
+                grid-template-columns: 1fr;
+            }
+
+            .agent-demo {
+                order: -1;
+            }
+
+            .page-hero-title {
+                font-size: 2.5rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .agent-content {
+                padding: 2rem 1.5rem;
+            }
+
+            .agent-title {
+                font-size: 1.5rem;
+            }
+
+            .cta-title {
+                font-size: 2rem;
+            }
+
+            .cta-description {
+                font-size: 1.125rem;
+            }
+
+            .demo-container {
+                height: 300px;
+                padding: 1rem;
+            }
+
+            .studio-stats-container {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1.5rem;
+            }
+
+            .hero-logo {
+                height: 80px;
+                width: 80px;
+            }
         }
 
         @media (max-width: 640px) {
-          .page-hero.studio-hero {
-            padding: 6rem 1rem 3rem;
-          }
+            .page-hero.studio-hero {
+                padding: 6rem 1rem 3rem;
+            }
 
-          .page-hero-title {
-            font-size: 1.75rem;
-          }
+            .page-hero-title {
+                font-size: 2rem;
+            }
 
-          .agent-content {
-            padding: 1.5rem;
-          }
+            .section-title {
+                font-size: 1.75rem;
+            }
 
-          .capabilities-grid {
-            grid-template-columns: 1fr;
-          }
+            .agent-content {
+                padding: 1.5rem 1rem;
+            }
+
+            .agent-title {
+                font-size: 1.25rem;
+            }
+
+            .capabilities-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .agents-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .cta-title {
+                font-size: 1.75rem;
+            }
+
+            .cta-description {
+                font-size: 1rem;
+            }
+
+            .studio-cta {
+                padding: 3rem 1rem;
+            }
+
+            .demo-container {
+                height: 250px;
+            }
+
+            .studio-stats-container {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+
+            .hero-logo {
+                height: 70px;
+                width: 70px;
+            }
+
+            .agent-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0.5rem;
+            }
+
+            .agent-features li {
+                font-size: 0.9rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .page-hero-title {
+                font-size: 1.75rem;
+            }
+
+            .section-title {
+                font-size: 1.5rem;
+            }
+
+            .section-description {
+                font-size: 1rem;
+            }
+
+            .agent-content {
+                padding: 1rem;
+            }
+
+            .demo-container {
+                height: 200px;
+                padding: 0.5rem;
+            }
+
+            .capability-card,
+            .coming-soon-card {
+                padding: 1.5rem 1rem;
+            }
+
+            .hero-logo {
+                height: 60px;
+                width: 60px;
+            }
+        }
+
+        @media (max-width: 320px) {
+            .container {
+                padding: 0 1rem;
+            }
+
+            .nav-container {
+                padding: 0 1rem;
+            }
+
+            .page-hero-title {
+                font-size: 1.5rem;
+            }
+
+            .agent-title {
+                font-size: 1.125rem;
+            }
+
+            .demo-container {
+                height: 180px;
+            }
         }
     </style>
 </head>
@@ -753,16 +905,15 @@
     <header class="header">
         <nav class="nav-container">
             <div class="nav-content">
-               
 
-                <!-- Nav Menu (right on desktop, hidden on mobile) -->
+                <!-- Nav Menu -->
                 <div class="nav-menu" id="navMenu">
                     <a href="index.html" class="nav-link">Home</a>
-                    <a href="aistudio.html" class="nav-link">AI Studio</a>
+                    <a href="#aistudio" class="nav-link">AI Studio</a>
                     <a href="whitepapers.html" class="nav-link">Research and Insights</a>
                 </div>
 
-                <!-- Hamburger Icon (right) -->
+                <!-- Hamburger Icon -->
                 <button class="mobile-menu-btn" id="mobileMenuBtn">
                     <span class="hamburger-line"></span>
                     <span class="hamburger-line"></span>
@@ -776,13 +927,12 @@
         <!-- Hero Section -->
         <section class="page-hero studio-hero" id="home">
             <div class="page-hero-container">
-                <div class="page-hero-badge">
-                   <!-- Logo Center -->
-                <div class="logo-container">
-                    <img src="assets/images/krumanlogo.png" alt="Kruman Corporations" class="logo">
-                    <h1 class="company-name">Kruman Corporations</h1>
+                <!-- Logo -->
+                <div class="hero-logo-container">
+                    <img src="assets/images/krumanlogo.png" alt="Kruman Corporations" class="hero-logo">
                 </div>
-                    <span class="hero-badge-icon">✨</span>
+                <div class="page-hero-badge">
+                   <span class="hero-badge-icon">✨</span>
                     Live AI Demonstrations
                 </div>
                 <h1 class="page-hero-title">
@@ -851,7 +1001,8 @@
                         </p>
                         <div class="agent-cta">
                             <p class="cta-text">🚀 Want a similar AI Agent customized for your company?</p>
-                            <p class="contact-info">Interested in our product? Mail us at: krumancorporations@gmail.com</p>
+                            <p class="contact-info">Interested in our product? 
+                              Mail us at: krumancorporations@gmail.com</p>
                         </div>
                     </div>
 
@@ -912,7 +1063,7 @@
                         <h3 class="agent-title">Student Performance Management System</h3>
                         <p class="agent-headline">📈 Smarter Insights. Stronger Outcomes.</p>
                         <p class="agent-description">
-                            Introducing Kruman Corporation's Student Performance Management System, your gateway to smarter education management. Harness the power of AI-driven analytics to gain unparalleled insights into student progress, classroom trends, and institutional performance. From customizable dashboards to detailed reports and predictive analytics, Kruman Corporation empowers educators and administrators to make data-informed decisions with confidence.
+                            Introducing Kruman Corporation's Student Performance Management System, your gateway to smarter education management. Harness the power of AI-driven analytics to gain unparalleled insights into student progress, classroom trends, and institutional performance.
                         </p>
                         <ul class="agent-features">
                             <li><span class="feature-icon">📊</span>Customizable performance dashboards</li>
@@ -983,7 +1134,7 @@
         </section>
 
         <!-- Technical Capabilities -->
-        <section class="technical-capabilities">
+        <section class="technical-capabilities" id="capabilities">
             <div class="technical-capabilities-container">
                 <div class="section-header">
                     <h2 class="section-title">Technical Capabilities</h2>
@@ -1115,7 +1266,17 @@
                     document.body.style.overflow = 'auto';
                 }
             });
+
+            // Handle video loading errors
+            const videos = document.querySelectorAll('video');
+            videos.forEach(video => {
+                video.addEventListener('error', function() {
+                    console.log('Video failed to load, hiding container');
+                    this.style.display = 'none';
+                });
+            });
         });
     </script>
 </body>
 </html>
+
