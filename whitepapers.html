@@ -12,15 +12,21 @@
     <header class="header">
         <nav class="nav-container">
             <div class="nav-content">
-                
-               <!-- Nav Menu (right on desktop, hidden on mobile) -->
+                <!-- Navigation Menu -->
                 <div class="nav-menu" id="navMenu">
                     <a href="index.html" class="nav-link">Home</a>
                     <a href="aistudio.html" class="nav-link">AI Studio</a>
-                    <a href="whitepapers.html" class="nav-link">Research and Insights</a>
+                    <a href="whitepapers.html" class="nav-link active">Research and Insights</a>
                 </div>
 
-<!-- Hamburger Icon (right) -->
+                <!-- Mobile Navigation Menu -->
+                <div class="nav-menu-mobile" id="navMenuMobile">
+                    <a href="index.html" class="nav-link">Home</a>
+                    <a href="aistudio.html" class="nav-link">AI Studio</a>
+                    <a href="whitepapers.html" class="nav-link active">Research and Insights</a>
+                </div>
+
+                <!-- Hamburger Button -->
                 <button class="mobile-menu-btn" id="mobileMenuBtn">
                     <span class="hamburger-line"></span>
                     <span class="hamburger-line"></span>
@@ -32,20 +38,25 @@
 
     <main>
         <!-- Hero Section -->
-        <section class="research-hero">
-            <div class="container">
-             <div class="hero-content">
-             <div class="logo-section">
-            <div class="logo-container">
+        <section class="hero-section">
+            <div class="hero-container">
+                <div class="hero-content">
+                    <!-- Logo -->
+                    <div class="logo-section">
                         <a href="index.html">
-                            <img src="assets/images/krumanlogo.png" alt="Kruman Corporations" class="logo">
+                            <img src="assets/images/krumanlogo.png" 
+                                 alt="Kruman Corporations" 
+                                 class="logo">
                         </a>
+                    </div>
 
-                 <!-- 🔖 Badge -->
-      <div class="page-hero-badge">
-        🧠 Research. Reflect. Revolutionize.
-      </div>
+                    <!-- Badge -->
+                    <div class="hero-badge">
+                        🧠 Research. Reflect. Revolutionize.
+                    </div>
+
                     <h1 class="hero-title">Research and Insights Hub</h1>
+
                     <div class="hero-description">
                         <p>Welcome to our Research & Insights hub — a space where knowledge meets innovation.</p>
                         <p>Here, we showcase the original research, whitepapers, and thought-provoking articles authored by our interns, employees, and collaborators. From technical explorations to visionary ideas, these publications reflect our ongoing commitment to advancing artificial intelligence, technology, and human potential. We invite you to explore, learn, and be inspired by the work that drives our mission forward.</p>
@@ -56,14 +67,140 @@
 
         <!-- Publications Section -->
         <section class="publications-section">
-            <div class="container">
+            <div class="publications-container">
                 <div class="section-header">
                     <h2 class="section-title">Publications & Whitepapers</h2>
                     <p class="section-subtitle">Explore our technical publications and strategic research work</p>
                 </div>
 
                 <div class="publications-grid">
-                    <!-- Whitepaper 1 -->
+<!-- Whitepaper 1 -->
+<div class="publication-card">
+  <div class="card-header">
+    <div class="card-icon">📄</div>
+    <span class="card-category">Small Business AI</span>
+  </div>
+  <h3 class="card-title">The MSME AI Revolution</h3>
+  <p class="card-description">
+    Explore how MSMEs can compete with enterprise giants by adopting agentic AI, multimodal systems, and cost-effective ML tools.
+  </p>
+  <div class="card-meta">
+    <p class="author-info"><strong>Author:</strong> Kruman Corporations</p>
+    <p class="publication-date">Published: July 2025</p>
+  </div>
+  <div class="card-actions">
+    <a href="assets/Whitepapers/The MSME AI Revolution.pdf" target="_blank" class="btn-primary">
+      <span class="btn-icon">📥</span> Download PDF
+    </a>
+  </div>
+</div>
+
+<!-- Whitepaper 2 -->
+<div class="publication-card">
+  <div class="card-header">
+    <div class="card-icon">📄</div>
+    <span class="card-category">Privacy & Data</span>
+  </div>
+  <h3 class="card-title">Synthetic Data: AI Innovation with Privacy</h3>
+  <p class="card-description">
+    A comprehensive guide to using synthetic data for AI training while ensuring privacy, with real-world use cases and methods.
+  </p>
+  <div class="card-meta">
+    <p class="author-info"><strong>Author:</strong> Kruman Corporations</p>
+    <p class="publication-date">Published: July 2025</p>
+  </div>
+  <div class="card-actions">
+    <a href="assets/Whitepapers/Synthetic Data_ whitepaper.pdf" target="_blank" class="btn-primary">
+      <span class="btn-icon">📥</span> Download PDF
+    </a>
+  </div>
+</div>
+
+<!-- Whitepaper 3 -->
+<div class="publication-card">
+  <div class="card-header">
+    <div class="card-icon">📄</div>
+    <span class="card-category">Education AI</span>
+  </div>
+  <h3 class="card-title">AI Transformation in Education</h3>
+  <p class="card-description">
+    Discover how AI improves student outcomes, automates operations, and transforms institutions with intelligent learning systems.
+  </p>
+  <div class="card-meta">
+    <p class="author-info"><strong>Author:</strong> Kruman Corporations</p>
+    <p class="publication-date">Published: July 2025</p>
+  </div>
+  <div class="card-actions">
+    <a href="assets/Whitepapers/The Complete AI Transformation Guide for Education.pdf" target="_blank" class="btn-primary">
+      <span class="btn-icon">📥</span> Download PDF
+    </a>
+  </div>
+</div>
+
+<!-- Whitepaper 4 -->
+<div class="publication-card">
+  <div class="card-header">
+    <div class="card-icon">📄</div>
+    <span class="card-category">AI Governance</span>
+  </div>
+  <h3 class="card-title">Building Comprehensive AI Trust Frameworks</h3>
+  <p class="card-description">
+    A technical blueprint for building explainable, privacy-preserving, and real-time governed enterprise AI systems.
+  </p>
+  <div class="card-meta">
+    <p class="author-info"><strong>Author:</strong> Kruman Corporations</p>
+    <p class="publication-date">Published: July 2025</p>
+  </div>
+  <div class="card-actions">
+    <a href="assets/Whitepapers/Building Comprehensive AI Trust Frameworks.pdf" target="_blank" class="btn-primary">
+      <span class="btn-icon">📥</span> Download PDF
+    </a>
+  </div>
+</div>
+
+<!-- Whitepaper 5 -->
+<div class="publication-card">
+  <div class="card-header">
+    <div class="card-icon">📄</div>
+    <span class="card-category">AI & Analytics</span>
+  </div>
+  <h3 class="card-title">The Future of Business Intelligence</h3>
+  <p class="card-description">
+    How multimodal AI is revolutionizing business intelligence by combining structured and unstructured data for deeper insights.
+  </p>
+  <div class="card-meta">
+    <p class="author-info"><strong>Author:</strong> Kruman Corporations</p>
+    <p class="publication-date">Published: July 2025</p>
+  </div>
+  <div class="card-actions">
+    <a href="assets/Whitepapers/The Future of Business Intelligence.pdf" target="_blank" class="btn-primary">
+      <span class="btn-icon">📥</span> Download PDF
+    </a>
+  </div>
+</div>
+
+<!-- Whitepaper 6 -->
+<div class="publication-card">
+  <div class="card-header">
+    <div class="card-icon">📄</div>
+    <span class="card-category">Privacy AI</span>
+  </div>
+  <h3 class="card-title">Advanced Privacy-Preserving Techniques</h3>
+  <p class="card-description">
+    Learn how federated learning, differential privacy, and encryption protect data in multimodal AI systems at scale.
+  </p>
+  <div class="card-meta">
+    <p class="author-info"><strong>Author:</strong> Kruman Corporations</p>
+    <p class="publication-date">Published: July 2025</p>
+  </div>
+  <div class="card-actions">
+    <a href="assets/Whitepapers/Advanced Privacy-Preserving Techniques.pdf" target="_blank" class="btn-primary">
+      <span class="btn-icon">📥</span> Download PDF
+    </a>
+  </div>
+</div>
+
+     <!-- Whitepaper 7-->
                     <div class="publication-card">
                         <div class="card-header">
                             <div class="card-icon">📄</div>
@@ -87,21 +224,25 @@
                         </div>
                     </div>
 
-                    <!-- Placeholder for more whitepapers -->
+                    <!-- Coming Soon Card -->
                     <div class="publication-card coming-soon">
                         <div class="card-header">
-                            <div class="card-icon">🔬</div>
+                            <div class="card-icon coming-soon-icon">🔬</div>
                             <span class="card-category">AI Research</span>
                         </div>
+
                         <h3 class="card-title">More Publications Coming Soon</h3>
+
                         <p class="card-description">
                             We're continuously researching and publishing new insights. Stay tuned for more groundbreaking research.
                         </p>
+
                         <div class="card-meta">
                             <p class="author-info">
                                 <strong>Team:</strong> Kruman Corporations Research Division
                             </p>
                         </div>
+
                         <div class="card-actions">
                             <button class="btn-secondary" disabled>
                                 <span class="btn-icon">⏳</span>
@@ -114,16 +255,14 @@
         </section>
 
         <!-- CTA Section -->
-        <section class="research-cta">
-            <div class="container">
-                <div class="cta-content">
-                    <h2 class="cta-title">Want to Collaborate?</h2>
-                    <p class="cta-description">
-                        Interested in collaborating on research or contributing to our publications? We'd love to hear from you.
-                    </p>
-                    <div class="cta-contact">
-                        <p class="contact-text">Get in touch: <strong>krumancorporations@gmail.com</strong></p>
-                    </div>
+        <section class="cta-section">
+            <div class="cta-container">
+                <h2 class="cta-title">Want to Collaborate?</h2>
+                <p class="cta-description">
+                    Interested in collaborating on research or contributing to our publications? We'd love to hear from you.
+                </p>
+                <div class="cta-contact">
+                    <p class="contact-text">Get in touch: <strong>krumancorporations@gmail.com</strong></p>
                 </div>
             </div>
         </section>
@@ -131,11 +270,11 @@
 
     <!-- Footer -->
     <footer class="footer">
-        <div class="container">
+        <div class="footer-container">
             <p>© 2025 Kruman Corporations</p>
         </div>
     </footer>
 
-    <script src="script.js"></script>
+    <script src="assets/js/whitepaper.js"></script>
 </body>
 </html>
