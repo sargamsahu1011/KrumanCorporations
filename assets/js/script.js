@@ -66,66 +66,6 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   });
 
-  // Form submission handling
-  const careersForm = document.getElementById('careersForm');
-  if (careersForm) {
-    careersForm.addEventListener('submit', function(e) {
-      const submitBtn = this.querySelector('.submit-btn');
-      const originalText = submitBtn.textContent;
-      
-      // Remove any existing messages
-      const existingMessage = this.querySelector('.form-message');
-      if (existingMessage) {
-        existingMessage.remove();
-      }
-      
-      submitBtn.textContent = 'Sending...';
-      submitBtn.disabled = true;
-      
-      // Create FormData object
-      const formData = new FormData(this);
-      
-      // Submit to Formspree
-      fetch(this.action, {
-        method: 'POST',
-        body: formData,
-        headers: {
-          'Accept': 'application/json'
-        }
-      })
-      .then(response => {
-        if (response.ok) {
-          // Success
-          const successDiv = document.createElement('div');
-          successDiv.className = 'form-message success';
-          successDiv.textContent = 'Thank you for your application! We\'ll review it and get back to you.';
-          this.insertBefore(successDiv, this.firstChild);
-          this.reset();
-        } else {
-          throw new Error('Form submission failed');
-        }
-      })
-      .catch(error => {
-        // Error
-        const errorDiv = document.createElement('div');
-        errorDiv.className = 'form-message error';
-        errorDiv.textContent = 'Sorry, there was an error sending your message. Please try again.';
-        this.insertBefore(errorDiv, this.firstChild);
-      })
-      .finally(() => {
-        submitBtn.textContent = originalText;
-        submitBtn.disabled = false;
-        
-        // Remove message after 5 seconds
-        setTimeout(() => {
-          const message = this.querySelector('.form-message');
-          if (message) {
-            message.remove();
-          }
-        }, 5000);
-      });
-    });
-  }
 
   // Header scroll effect
   let lastScrollTop = 0;
