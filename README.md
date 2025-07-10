@@ -9,7 +9,7 @@ This is the official website of **Kruman Corporations**, an AI research and prod
 
 ## 🌐 Live Demo
 
-🌍 [View Website](https://sargamsahu1011.github.io/KrumanCorporations/) *(original development link)*  
+🌍 [View Website](https://krumancorporations.github.io/KrumanCorporations/) *(original development link)*  
 (Production version deployed under KrumanCorporations Netlify account)
 
 ---
