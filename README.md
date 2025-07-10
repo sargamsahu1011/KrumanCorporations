@@ -43,7 +43,7 @@ This site was developed as part of a one-month web development internship at Kru
 ├── css/                 # Stylesheets
 ├── js/                  # JavaScript files
 ├── index.html           # Homepage
-├── studio.html          # AI Studio page
-├── research.html        # Research & Innovation page
+├── aistudio.html          # AI Studio page
+├── whitepapers.html        # Research & Innovation page
 
 
